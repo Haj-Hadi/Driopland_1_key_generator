@@ -1,53 +1,69 @@
 <!DOCTYPE html>
-<html lang="fa" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamster Kombat Key Generator</title>
+    <title>Game Promo Code Generator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="logo-wrapper">
-            <img src="logo.png" alt="Logo" class="logo">
+        <h1>Game Promo Code Generator</h1>
+        <div class="form-group">
+            <label for="gameSelect">انتخاب بازی</label>
+            <select id="gameSelect">
+                <option value="1">Riding Extreme 3D</option>
+                <option value="2">Chain Cube 2048</option>
+                <option value="3">My Clone Army</option>
+                <option value="4">Train Miner</option>
+                <option value="5">MergeAway</option>
+                <option value="6">Twerk Race</option>
+
+            </select>
         </div>
-        <label for="gameSelect">: انتخاب بازی</label>
-        <select id="gameSelect">
-            <option value="1">Riding Extreme 3D</option>
-            <option value="2">Chain Cube 2048</option>
-            <option value="3">My Clone Army</option>
-            <option value="4">Train Miner</option>
-            <option value="5">MergeAway</option>
-            <option value="6">Twerk Race</option>
-        </select>
-        <label for="keyCountSelect" id="keyCountLabel">: تعداد کلید ها</label>
-        <select id="keyCountSelect">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="8">8</option>
-            <option value="20">20</option>
-        </select>
-        <button id="startBtn" class="button">دریافت کلید ها</button>
-        <div id="progressContainer" class="progress-container hidden">
-            <div id="progressBar" class="progress-bar"></div>
-            <span id="progressText" class="progress-text">0%</span>
-            <div id="keyContainer" class="key-container hidden">
-                <h2 id="generatedKeysTitle" class="hidden">: کلید های ساخته شده</h2>
-                <div id="keysList" class="keys-list"></div>
-                <button id="copyAllBtn" class="button hidden">کپی همه کلید ها</button>
-                <button id="generateMoreBtn" class="button hidden">دریافت کلید بیشتر</button>
-                <div id="copyStatus" class="copy-status hidden">کپی شد!</div>
+        
+        <div class="form-group">
+            <label id="keyCountLabel" for="keyCountSelect">: تعداد کلید</label>
+            <select id="keyCountSelect">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="8">8</option>
+                <option value="20">20</option>
+
+            </select>
+        </div>
+        <button id="startBtn">دریافت کلید</button>
+        <div id="progressContainer" class="hidden">
+            <div class="progress-bar">
+                <div id="progressBar"></div>
             </div>
-            <div class="donation-section" style="margin-top: 20px; text-align: center;">
-                <h2 style="color: #e1e1e1; font-weight: bold;">♥ اگر دوست داشتید میتونید از ما حمایت مالی کنید</h2>
-                <p>روی حمایت مالی کلیک کنید</p>
-                <a href="https://www.coffeebede.com/dropland_1">
-                    <button class="button">حمایت مالی</button>
-                </a>
+            <div id="progressText">0%</div>
+            <div id="progressLog">...شروع</div>
+            <div id="countdownContainer">
+            <p>: شروع مرحله بعدی تا <span id="countdownTimer"></span> ثانیه </p>
             </div>
         </div>
+        <div id="keyContainer" class="hidden">
+            <h3 id="generatedKeysTitle" class="hidden">: کلید های دریافت شده</h3>
+            <div id="keysList"></div>
+            <button id="copyAllBtn" class="hidden">کپی کردن تمام کلید ها</button>
+            <div id="copyStatus" class="hidden">!کپی شد</div>
+            <button id="generateMoreBtn">دریافت کلید بیشتر</button>
+        </div>
+        <div class="mycodes">
+            <p>
+                The Key Generation may take upto 10 mins<br>
+            </p>
+            <button id="ShowKeysBtn">کلید های من</button>
+            <div id="generatedCodesContainer" style="display:none;">
+                <h3>Today's Generated Codes:</h3>
+                <ul id="generatedCodesList"></ul>
+            </div>
+
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
