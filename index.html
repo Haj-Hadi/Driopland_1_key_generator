@@ -1,76 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Promo Code Generator</title>
+    <title>Hamster Kombat Key Generator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Game Promo Code Generator</h1>
-        <div class="form-group">
-            <label for="gameSelect">Select Game</label>
-            <select id="gameSelect">
-                <option value="1">Riding Extreme 3D</option>
-                <option value="2">Chain Cube 2048</option>
-                <option value="3">My Clone Army</option>
-                <option value="4">Train Miner</option>
-                <option value="5">MergeAway (NEW)</option>
-                <option value="6">Twerk Race (NEW)</option>
-
-            </select>
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="Logo" class="logo">
         </div>
-        
-        <div class="form-group">
-            <label id="keyCountLabel" for="keyCountSelect">Number of keys:</label>
-            <select id="keyCountSelect">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="8">8</option>
-                <option value="20">20</option>
-
-            </select>
-        </div>
-        <button id="startBtn">Generate Keys</button>
-        <div id="progressContainer" class="hidden">
-            <div class="progress-bar">
-                <div id="progressBar"></div>
+        <label for="gameSelect">: انتخاب بازی</label>
+        <select id="gameSelect">
+            <option value="1">Riding Extreme 3D</option>
+            <option value="2">Chain Cube 2048</option>
+            <option value="3">My Clone Army</option>
+            <option value="4">Train Miner</option>
+            <option value="5">MergeAway</option>
+            <option value="6">Twerk Race</option>
+        </select>
+        <label for="keyCountSelect" id="keyCountLabel">: تعداد کلید ها</label>
+        <select id="keyCountSelect">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="8">8</option>
+            <option value="20">20</option>
+        </select>
+        <button id="startBtn" class="button">دریافت کلید ها</button>
+        <div id="progressContainer" class="progress-container hidden">
+            <div id="progressBar" class="progress-bar"></div>
+            <span id="progressText" class="progress-text">0%</span>
+            <div id="keyContainer" class="key-container hidden">
+                <h2 id="generatedKeysTitle" class="hidden">: کلید های ساخته شده</h2>
+                <div id="keysList" class="keys-list"></div>
+                <button id="copyAllBtn" class="button hidden">کپی همه کلید ها</button>
+                <button id="generateMoreBtn" class="button hidden">دریافت کلید بیشتر</button>
+                <div id="copyStatus" class="copy-status hidden">کپی شد!</div>
             </div>
-            <div id="progressText">0%</div>
-            <div id="progressLog">Starting...</div>
-            <div id="countdownContainer">
-            <p>Next Step will start in: <span id="countdownTimer"></span> seconds </p>
+            <div class="donation-section" style="margin-top: 20px; text-align: center;">
+                <h2 style="color: #e1e1e1; font-weight: bold;">♥ اگر دوست داشتید میتونید از ما حمایت مالی کنید</h2>
+                <p>روی حمایت مالی کلیک کنید</p>
+                <a href="https://www.coffeebede.com/dropland_1">
+                    <button class="button">حمایت</button>
+                </a>
             </div>
         </div>
-        <div id="keyContainer" class="hidden">
-            <h3 id="generatedKeysTitle" class="hidden">Generated Keys:</h3>
-            <div id="keysList"></div>
-            <button id="copyAllBtn" class="hidden">Copy All Keys</button>
-            <div id="copyStatus" class="hidden">Copied!</div>
-            <button id="generateMoreBtn">Generate More Keys</button>
-        </div>
-        <div class="mycodes">
-            <p>
-                The Key Generation may take upto 10 mins<br>
-                If you feel its not working then <a href="https://telegram.me/Insta_Buy_Follower">Contact Creator</a>
-            </p>
-            <button id="ShowKeysBtn">My Codes</button>
-            <div id="generatedCodesContainer" style="display:none;">
-                <h3>Today's Generated Codes:</h3>
-                <ul id="generatedCodesList"></ul>
-            </div>
-
-        </div>
-        <div class="footer">
-            <p>Disclaimer: This tool is for educational purposes only. Use responsibly.
-            <button id="telegramChannelBtn">Check out Our Telegram Channel 🆔</button></p>
-            <button id="creatorChannelBtn">Contact Creator 🤖</button> 
-            
-        </div>
-    </div>
     <script src="script.js"></script>
 </body>
 </html>
