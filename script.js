@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
         countdownContainer.style.display = 'none';
 
         const hasCode = await emulateProgress(clientToken, game.promoId);
-        updateProgress(((100 / game.attemptsNumber) / keyCount), 'Emulating progress...');
+        updateProgress(((100 / game.attemptsNumber) / keyCount), 'درحال شبیه سازی...');
         if (hasCode) {
             break;
         }
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
         const key = await generateKey(clientToken, game.promoId);
-        updateProgress(30 / keyCount, 'Generating key...');
+        updateProgress(30 / keyCount, 'درحال دریافت کلید...');
         return key;
     } catch (error) {
         alert(`Failed to generate key: ${error.message}`);
@@ -259,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
             keysList.innerHTML = keys.filter(key => key).map(key =>
                 `<div class="key-item">
                     <input type="text" value="${key}" readonly>
-                    <button class="copyKeyBtn" data-key="${key}">Copy Key</button>
+                    <button class="copyKeyBtn" data-key="${key}">کپی کلید</button>
                 </div>`
             ).join('');
             copyAllBtn.classList.remove('hidden');
@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             keysList.innerHTML =
                 `<div class="key-item">
                     <input type="text" value="${keys[0]}" readonly>
-                    <button class="copyKeyBtn" data-key="${keys[0]}">Copy Key</button>
+                    <button class="copyKeyBtn" data-key="${keys[0]}">کپی کلید</button>
                 </div>`;
         }
 
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         copyStatus.innerText = '';
                     }, 2000);
                 }).catch(err => {
-                    console.error('Could not copy text: ', err);
+                    console.error('متن کپی نشد: ', err);
                 });
             });
         });
@@ -300,21 +300,21 @@ document.addEventListener('DOMContentLoaded', () => {
     copyAllBtn.addEventListener('click', () => {
         const allKeys = Array.from(document.querySelectorAll('.key-item input')).map(input => input.value).join('\n');
         navigator.clipboard.writeText(allKeys).then(() => {
-            copyStatus.innerText = 'All keys copied';
+            copyStatus.innerText = 'همه کلید ها کپی شد';
             setTimeout(() => {
                 copyStatus.innerText = '';
             }, 2000);
         }).catch(err => {
-            console.error('Could not copy text: ', err);
+            console.error('متن کپی نشد: ', err);
         });
     });
 
     document.getElementById('creatorChannelBtn').addEventListener('click', () => {
-        window.open('https://telegram.me/Sam_Dm_bot', '_blank');
+        window.open('', '_blank');
     });
 
     telegramChannelBtn.addEventListener('click', () => {
-        window.open('https://telegram.me/Insta_Buy_Follower', '_blank');
+        window.open('', '_blank');
     });
 
     document.getElementById('ShowKeysBtn').addEventListener('click', () => {
@@ -339,7 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (codesGeneratedToday.length > 0) {
             generatedCodesList.innerHTML = codesGeneratedToday.join('');
         } else {
-            generatedCodesList.innerHTML = '<li>No codes generated today.</li>';
+            generatedCodesList.innerHTML = '<li>امروز کلیدی دریافت نکرده اید.</li>';
         }
 
         generatedCodesContainer.style.display = 'block';
