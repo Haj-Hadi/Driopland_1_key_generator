@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         progressBar.style.width = '0%';
         progressText.innerText = '0%';
-        progressLog.innerText = '...شروع \n تولید کلید ممکن است تا 10 دقیقه طول بکشد';
+        progressLog.innerText = '';
         progressContainer.classList.remove('hidden');
         keyContainer.classList.add('hidden');
         generatedKeysTitle.classList.add('hidden');
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
         countdownContainer.style.display = 'none';
 
         const hasCode = await emulateProgress(clientToken, game.promoId);
-        updateProgress(((100 / game.attemptsNumber) / keyCount), 'درحال شبیه سازی...');
+        updateProgress(((100 / game.attemptsNumber) / keyCount), '');
         if (hasCode) {
             break;
         }
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
         const key = await generateKey(clientToken, game.promoId);
-        updateProgress(30 / keyCount, 'درحال دریافت کلید...');
+        updateProgress(30 / keyCount, '');
         return key;
     } catch (error) {
         alert(`Failed to generate key: ${error.message}`);
