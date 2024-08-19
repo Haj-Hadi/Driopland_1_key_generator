@@ -179,11 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        keyCountLabel.innerText = `Number of keys: ${keyCount}`;
+        keyCountLabel.innerText = `تعداد کلید: ${keyCount}`;
 
         progressBar.style.width = '0%';
         progressText.innerText = '0%';
-        progressLog.innerText = 'Starting... \n Please wait It may take upto 1 min to Login';
+        progressLog.innerText = '...شروع \n تولید کلید ممکن است تا 10 دقیقه طول بکشد';
         progressContainer.classList.remove('hidden');
         keyContainer.classList.add('hidden');
         generatedKeysTitle.classList.add('hidden');
