@@ -198,7 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const updateProgress = (increment, message) => {
             progress += increment;
             progressBar.style.width = `${progress}%`;
-            progressText.innerText = `${progress}%`;
+            let roundedProgress = progress.toFixed(2);
+            progressText.innerText = `${roundedProgress}%`;
             progressLog.innerText = message;
         };
     
