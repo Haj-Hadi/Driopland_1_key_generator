@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         appToken: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
         promoId: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
         eventsDelay: 20000,
-        attemptsNumber: 16,
+        attemptsNumber: 10,
          }
     };
 
