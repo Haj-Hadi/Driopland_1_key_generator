@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         appToken: '8814a785-97fb-4177-9193-ca4180ff9da8',
         promoId: '8814a785-97fb-4177-9193-ca4180ff9da8',
         eventsDelay: 20000,
-        attemptsNumber: 16,
+        attemptsNumber: 10,
          },
         9 : {
         name: 'Mow and Trim',
