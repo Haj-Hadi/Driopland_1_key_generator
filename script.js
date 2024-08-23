@@ -143,6 +143,9 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Error fetching cipher.");
         }
     }
+
+    // Attach event listener to the button
+    document.getElementById('fetchCipherBtn').addEventListener('click', fetchDailyCipher);
     
     const startBtn = document.getElementById('startBtn');
     const keyCountSelect = document.getElementById('keyCountSelect');
