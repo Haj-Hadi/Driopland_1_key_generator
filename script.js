@@ -70,7 +70,80 @@ document.addEventListener('DOMContentLoaded', () => {
          }
     };
 
+    // Morse code map for digits
+    const morseCodeMap = {
+        'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
+        'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
+        'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
+        'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
+        'Y': '-.--', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---',
+        '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...',
+        '8': '---..', '9': '----.'
+    };
 
+    // Convert text to Morse code with formatted output
+    function textToFormattedMorse(text) {
+        return text.split('').map(char => {
+            const morse = morseCodeMap[char.toUpperCase()];
+            if (!morse) return ''; // Skip unknown characters
+            return formatMorse(morse);
+        }).join('\n');
+    }
+
+    // Format Morse code for display
+    function formatMorse(morse) {
+        return morse.split('').map(symbol => {
+            if (symbol === '-') return '▬'; // Dash for Morse code
+            if (symbol === '.') return '●'; // Dot for Morse code
+            return ''; // Skip any other characters
+        }).join(' ');
+    }
+
+    // Fetch daily cipher and display Morse code
+    async function fetchDailyCipher() {
+        const authorization = 'Bearer 17192275270598VV9aqYH7Gw4VPoKEnkimr9SxayT9NX2mAvXwpV3PjbOcUCA8WgaheIv0EPGNahB7264202224';
+
+        try {
+            const response = await fetch('https://api.hamsterkombatgame.io/clicker/config', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': authorization,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const cipher = data.dailyCipher.cipher;
+
+                if (cipher) {
+                    // Modify the cipher and decode from Base64
+                    const modifiedCipher = cipher.slice(0, 3) + cipher.slice(4);
+                    const decodedCipher = atob(modifiedCipher);
+
+                    // Convert to formatted Morse code
+                    const formattedMorseCode = textToFormattedMorse(decodedCipher);
+
+                    // Display the decoded cipher and Morse code
+                    document.getElementById('decodedCipher').innerText = decodedCipher;
+                    document.getElementById('morseCode').innerText = formattedMorseCode;
+
+                    // Show the display area
+                    document.getElementById('cipherDisplay').classList.remove('hidden');
+                } else {
+                    alert("Error: No cipher received.");
+                }
+            } else {
+                alert(`Error fetching cipher: ${response.status}`);
+            }
+        } catch (error) {
+            console.error("Error fetching cipher:", error);
+            alert("Error fetching cipher.");
+        }
+    }
+    
     const startBtn = document.getElementById('startBtn');
     const keyCountSelect = document.getElementById('keyCountSelect');
     const keyCountLabel = document.getElementById('keyCountLabel');
