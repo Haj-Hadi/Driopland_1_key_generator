@@ -47,21 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
             attemptsNumber: 15,
             
         },
-        7 : {
+        7: {
         name: 'Polysphere',
         appToken: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
         promoId: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
         eventsDelay: 20000,
         attemptsNumber: 16,
          },
-        8 : {
+        8: {
         name: 'Mud Racing',
         appToken: '8814a785-97fb-4177-9193-ca4180ff9da8',
         promoId: '8814a785-97fb-4177-9193-ca4180ff9da8',
         eventsDelay: 20000,
         attemptsNumber: 20,
          },
-        9 : {
+        9: {
         name: 'Mow and Trim',
         appToken: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
         promoId: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
