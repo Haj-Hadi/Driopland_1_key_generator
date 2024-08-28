@@ -52,14 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
         appToken: '8814a785-97fb-4177-9193-ca4180ff9da8',
         promoId: '8814a785-97fb-4177-9193-ca4180ff9da8',
         eventsDelay: 20000,
-        attemptsNumber: 20,
+        attemptsNumber: 15,
          },
         8: {
         name: 'Mow and Trim',
         appToken: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
         promoId: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
         eventsDelay: 20000,
-        attemptsNumber: 20,
+        attemptsNumber: 15,
          },
         9: {
             name: 'Cafe Dash',
