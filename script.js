@@ -37,35 +37,35 @@ document.addEventListener('DOMContentLoaded', () => {
             appToken: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
             promoId: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
             eventsDelay: 20000,
-            attemptsNumber: 16,
+            attemptsNumber: 18,
         },
         6: {
             name: 'Mow and Trim',
             appToken: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
             promoId: 'ef319a80-949a-492e-8ee0-424fb5fc20a6',
             eventsDelay: 21000,
-            attemptsNumber: 15,
+            attemptsNumber: 17,
         },
         7: {
             name: 'Cafe Dash',
             appToken: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11',
             promoId: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11',
             eventsDelay: 23000,
-            attemptsNumber: 16,
+            attemptsNumber: 18,
         },
         8: {
             name: 'ZooPolis',
             appToken: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b',
             promoId: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b',
             eventsDelay: 21000,
-            attemptsNumber: 23,
-	    },
+            attemptsNumber: 22,
+        },
         9: {
             name: 'Gangs Wars',
             appToken: 'b6de60a0-e030-48bb-a551-548372493523',
             promoId: 'c7821fa7-6632-482c-9635-2bd5798585f9',
             eventsDelay: 40000,
-            attemptsNumber: 23,
+            attemptsNumber: 22,
      	}
     };
 
