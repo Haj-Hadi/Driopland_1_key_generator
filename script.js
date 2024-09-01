@@ -402,14 +402,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    document.getElementById('creatorChannelBtn').addEventListener('click', () => {
-        window.open('', '_blank');
-    });
-
-    telegramChannelBtn.addEventListener('click', () => {
-        window.open('', '_blank');
-    });
-
     document.getElementById('ShowKeysBtn').addEventListener('click', () => {
         const generatedCodesContainer = document.getElementById('generatedCodesContainer');
         const generatedCodesList = document.getElementById('generatedCodesList');
