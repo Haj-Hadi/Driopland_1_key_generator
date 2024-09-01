@@ -341,7 +341,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
         const key = await generateKey(clientToken, game.promoId);
-        updateProgress(30 / keyCount, '');
+        if (key) {
+            updateProgress(30 / keyCount, '');
+            storedData.count += 1; // افزایش شمارش کلیدها بلافاصله پس از تولید هر کلید
+            storedData.keys.push(key); // اضافه کردن کلید جدید به آرایه keys
+            localStorage.setItem(storageKey, JSON.stringify(storedData)); // بروزرسانی فایل ذخیره محلی بلافاصله پس از تولید هر کلید
+        }
         return key;
     } catch (error) {
         alert(`Failed to generate key: ${error.message}`);
@@ -349,49 +354,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 };
 
+  const keys = await Promise.all(Array.from({ length: keyCount }, generateKeyProcess));
 
-        const keys = await Promise.all(Array.from({ length: keyCount }, generateKeyProcess));
+     if (keys.some(key => key)) {
+        keysList.innerHTML = keys.filter(key => key).map(key =>
+           `<div class="key-item">
+              <input type="text" value="${key}" readonly>
+                 <button class="copyKeyBtn" data-key="${key}">کپی کلید</button>
+             </div>`
+         ).join('');
+      copyAllBtn.classList.remove('hidden');
+    } else {
+        alert('No keys were generated successfully.');
+    }
 
-        if (keys.length > 1) {
-            keysList.innerHTML = keys.filter(key => key).map(key =>
-                `<div class="key-item">
-                    <input type="text" value="${key}" readonly>
-                    <button class="copyKeyBtn" data-key="${key}">کپی کلید</button>
-                </div>`
-            ).join('');
-            copyAllBtn.classList.remove('hidden');
-        } else if (keys.length === 1) {
-            keysList.innerHTML =
-                `<div class="key-item">
-                    <input type="text" value="${keys[0]}" readonly>
-                    <button class="copyKeyBtn" data-key="${keys[0]}">کپی کلید</button>
-                </div>`;
-        }
-
-        storedData.count += keys.filter(key => key).length;
-        storedData.keys.push(...keys.filter(key => key));
-        localStorage.setItem(storageKey, JSON.stringify(storedData));
-
-        keyContainer.classList.remove('hidden');
-        generatedKeysTitle.classList.remove('hidden');
-        document.querySelectorAll('.copyKeyBtn').forEach(button => {
-            button.addEventListener('click', (event) => {
-                const key = event.target.getAttribute('data-key');
-                navigator.clipboard.writeText(key).then(() => {
-                    copyStatus.innerText = `Copied ${key}`;
-                    setTimeout(() => {
-                        copyStatus.innerText = '';
-                    }, 2000);
-                }).catch(err => {
-                    console.error('متن کپی نشد: ', err);
-                });
+    keyContainer.classList.remove('hidden');
+    generatedKeysTitle.classList.remove('hidden');
+    document.querySelectorAll('.copyKeyBtn').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const key = event.target.getAttribute('data-key');
+            navigator.clipboard.writeText(key).then(() => {
+              copyStatus.innerText = `Copied ${key}`;
+                setTimeout(() => {
+                    copyStatus.innerText = '';
+                }, 2000);
+             }).catch(err => {
+                console.error('متن کپی نشد: ', err);
             });
         });
+    });
 
-        startBtn.disabled = false;
-        keyCountSelect.classList.remove('hidden');
-        gameSelect.classList.remove('hidden');
-        startBtn.classList.remove('hidden');
+    startBtn.disabled = false;
+    keyCountSelect.classList.remove('hidden');
+    gameSelect.classList.remove('hidden');
+    startBtn.classList.remove('hidden');
     });
 
     copyAllBtn.addEventListener('click', () => {
