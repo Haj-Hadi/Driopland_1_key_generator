@@ -80,14 +80,49 @@ document.addEventListener('DOMContentLoaded', () => {
             promoId: 'bc72d3b9-8e91-4884-9c33-f72482f0db37',
             eventsDelay: 20000,
             attemptsNumber: 30,
-	}
+	},
 	12:{
 	    name: 'Hide Ball',
             appToken: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600',
             promoId: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600',
             eventsDelay: 40000,
             attemptsNumber: 30,
-	}
+	},
+	13: {
+            name: 'Pin Out Master',
+            appToken: 'd2378baf-d617-417a-9d99-d685824335f0',
+            promoId: 'd2378baf-d617-417a-9d99-d685824335f0',
+            eventsDelay: 20000,
+            attemptsNumber: 30,
+        },
+        14: {
+            name: 'Count Masters',
+            appToken: '4bdc17da-2601-449b-948e-f8c7bd376553',
+            promoId: '4bdc17da-2601-449b-948e-f8c7bd376553',
+            eventsDelay: 20000,
+            attemptsNumber: 30,
+	},
+	15: {
+            name: 'Infected Frontier',
+            appToken: 'eb518c4b-e448-4065-9d33-06f3039f0fcb',
+            promoId: 'eb518c4b-e448-4065-9d33-06f3039f0fcb',
+            eventsDelay: 20000,
+            attemptsNumber: 30,
+        },
+        16: {
+            name: 'Among Water',
+            appToken: 'daab8f83-8ea2-4ad0-8dd5-d33363129640',
+            promoId: 'daab8f83-8ea2-4ad0-8dd5-d33363129640',
+            eventsDelay: 20000,
+            attemptsNumber: 30,
+	},
+	17: {
+            name: 'Factory World',
+            appToken: 'd02fc404-8985-4305-87d8-32bd4e66bb16',
+            promoId: 'd02fc404-8985-4305-87d8-32bd4e66bb16',
+            eventsDelay: 20000,
+            attemptsNumber: 30,
+        }
     };
 
     // Morse code map for digits
